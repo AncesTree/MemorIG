@@ -9,9 +9,8 @@ import Hugo from './users/hugo.jpg'
 import Thibaut from './users/thibaut.png'
 
 import Julien from './users/julien.jpg'
-
+import memorylogo from './users/memory-board-games.svg'
 const SIDE = 4
-//const SYMBOLS = '😀🎉💖🎩🐶🐱🦄🐬🌍🌛🌞💫🍎🍌🍓🍐🍟🍿'
 const SYMBOLS = [Damien,Hugo,Julien,Thibaut,Damien,Julien,Thibaut,Damien]
 const VISUAL_PAUSE_MSECS = 750
 
@@ -92,7 +91,7 @@ handleCardClick = index => {
     return (
       <div className="memory text-center bg-dark  ">
 
-        <h1 className =  "text-light mb-5 pt-3">Bienvenue dans IG Memories </h1>
+        <h1 className =  "text-light mb-5 pt-3">Bienvenue dans IG Memories  </h1>
         
         <h3 >  <GuessCount guesses={"Votre score : "+ guesses} /></h3> 
         
