@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import shuffle from 'lodash.shuffle';
+
 import './App.css';
 import GuessCount from './GuessCount'
 import Card from './Card'
@@ -7,11 +8,12 @@ import HallOfFame, { FAKE_HOF } from './HallOfFame'
 import Damien from './users/damien.jpg'
 import Hugo from './users/hugo.jpg'
 import Thibaut from './users/thibaut.png'
-
+import byebyelucas from './users/byebyelucas.jpg'
 import Julien from './users/julien.jpg'
 import memorylogo from './users/memory-board-games.svg'
-const SIDE = 4
-const SYMBOLS = [Damien,Hugo,Julien,Thibaut,Damien,Julien,Thibaut,Damien]
+import trophy from './trophy.svg'
+const SIDE = 2
+const SYMBOLS = [Hugo,byebyelucas]
 const VISUAL_PAUSE_MSECS = 750
 
 
@@ -23,7 +25,16 @@ class App  extends Component {
     currentPair: [],
     guesses: 0,
     matchedCardIndices: [],
+    show : false
   }
+  showModal = () => {
+    this.setState({ show: true });
+  };
+
+  hideModal = () => {
+    this.setState({ show: false });
+  };
+
   handleNewPairClosedBy(index) {
     const { cards, currentPair, guesses, matchedCardIndices } = this.state
 
@@ -84,24 +95,45 @@ handleCardClick = index => {
   
 
   render() {
-    const { cards, guesses, matchedCardIndices } = this.state
+    const { cards, guesses, matchedCardIndices, show } = this.state
     const won = matchedCardIndices.length === cards.length
+
+    console.log(show)
+    if( won ) {
     
+    }
+    console.log(show)
 
     return (
       <div className="memory text-center bg-dark  ">
 
-        <h1 className =  "text-light mb-5 pt-3">Bienvenue dans IG Memories  </h1>
+        <h1 className =  "text-light mb-5 pt-3"> Welcome to MemorIG ! </h1>
+
+        {won ? (<div className = "row ">
+                  <div className = "col-2 ">
+                    <img src ={trophy} className ="trophy"></img>
+                  </div>
+                  <div className = "col-8 ">
+                  
+                    <h3 className =  "text-light">  <GuessCount guesses={"BRAVO tu as gagné en "+ guesses + " coups ! "} /></h3> 
+                  </div>
+                  <div className = "col-2 ">
+                     <img src ={trophy}  className ="trophy"></img> 
+                  </div>
+         </div>
+      ) : (
+        <h5 className =  "text-light">  <GuessCount guesses={" Score : "+ guesses} /></h5> 
+      )}
         
-        <h3 >  <GuessCount guesses={"Votre score : "+ guesses} /></h3> 
+       
         
-        <div className ="container">
+        <div className ="container  ">
           
           <div className ="row">
             
             {cards.map((card, index) => (
               
-              <div className = "col-4 col-sm-4 col col-md-3 mb-2 ">
+              <div className = "col-4 col-sm-4 col col-md-3 mb-2 mt-2">
                 <Card
                   
                   {...console.log(index%3)}
@@ -119,8 +151,17 @@ handleCardClick = index => {
             
             
         </div>
-        {won && <HallOfFame entries={FAKE_HOF} />}
+        {won && 
+        
+        <button type="button" class="btn btn-primary">Rejouer !<link href ="https://MemorIG.igpolytech.fr"></link></button>
+        
+        
+        }
+              
+              
       </div>
+      
+      
     );
     }
    

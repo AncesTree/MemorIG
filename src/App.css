@@ -24,3 +24,14 @@
 .h1 {
   color : white 
 }
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
+.trophy {
+  height: 50px;
+  width : 50px;
+}
