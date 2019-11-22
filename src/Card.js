@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import Mystere from './users/myster.png'
 import './Card.css'
 
-//const HIDDEN_SYMBOL = '❓'
+
 
 const Card = ({ card, feedback, index, onClick , imgUrl }) => (
     <div className={`card ${feedback}`} onClick={() => onClick(index)}>

@@ -1,19 +1,21 @@
-import React, { Component } from 'react';
+import React, { Component , Button} from 'react';
 import shuffle from 'lodash.shuffle';
 
 import './App.css';
 import GuessCount from './GuessCount'
 import Card from './Card'
-import HallOfFame, { FAKE_HOF } from './HallOfFame'
 import Damien from './users/damien.jpg'
 import Hugo from './users/hugo.jpg'
 import Thibaut from './users/thibaut.png'
 import byebyelucas from './users/byebyelucas.jpg'
-import Julien from './users/julien.jpg'
-import memorylogo from './users/memory-board-games.svg'
+import fati from './users/teamFati.jpg'
+import lucas from './users/lucasbg.jpg'
+import promo from './users/promo.jpg'
+import lucasmas from './users/lucasmas.jpg'
 import trophy from './trophy.svg'
-const SIDE = 2
-const SYMBOLS = [Hugo,byebyelucas]
+import vaynit from './users/vaynit.jpg'
+const SIZE = 16
+const SYMBOLS = [Hugo,byebyelucas,fati,Damien,Thibaut,lucas,promo,lucasmas,vaynit]
 const VISUAL_PAUSE_MSECS = 750
 
 
@@ -27,8 +29,8 @@ class App  extends Component {
     matchedCardIndices: [],
     show : false
   }
-  showModal = () => {
-    this.setState({ show: true });
+  refresh = () => {
+    window.location.reload()
   };
 
   hideModal = () => {
@@ -50,7 +52,7 @@ class App  extends Component {
 
   generateCards() {
     const result = []
-    const size = SIDE * SIDE
+    const size = SIZE
     const candidates = shuffle(SYMBOLS)
     while (result.length < size) {
       console.log("candidates : "+candidates)
@@ -98,11 +100,9 @@ handleCardClick = index => {
     const { cards, guesses, matchedCardIndices, show } = this.state
     const won = matchedCardIndices.length === cards.length
 
-    console.log(show)
-    if( won ) {
     
-    }
-    console.log(show)
+  
+    
 
     return (
       <div className="memory text-center bg-dark  ">
@@ -136,7 +136,7 @@ handleCardClick = index => {
               <div className = "col-4 col-sm-4 col col-md-3 mb-2 mt-2">
                 <Card
                   
-                  {...console.log(index%3)}
+                  
                   card={card}
                   feedback= {this.getFeedbackForCard(index)}
                   index={index}
@@ -153,7 +153,7 @@ handleCardClick = index => {
         </div>
         {won && 
         
-        <button type="button" class="btn btn-primary">Rejouer !<link href ="https://MemorIG.igpolytech.fr"></link></button>
+        <button type="button" class="btn btn-primary" onClick = {this.refresh}>Rejouer ! </button>
         
         
         }
