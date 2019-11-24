@@ -2,4 +2,4 @@
 
 # React mini game 
 
-[Click to try ](memorig.igpolytech.fr)
+[Click to try ](http://memorig.igpolytech.fr)
