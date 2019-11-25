@@ -15,7 +15,7 @@ import lucasmas from './users/lucasmas.jpg'
 import trophy from './trophy.svg'
 import vaynit from './users/vaynit.jpg'
 const SIZE = 16
-const SYMBOLS = [Hugo,byebyelucas,fati,Damien,Thibaut,lucas,promo,lucasmas,vaynit]
+const SYMBOLS = [Hugo,byebyelucas,fati,Damien,Thibaut,lucas,promo,lucasmas]
 const VISUAL_PAUSE_MSECS = 750
 
 
